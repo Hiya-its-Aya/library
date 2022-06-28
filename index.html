@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Library</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="header">
+        <h1 id="title">Personal Library</h1>
+        <div id="search">
+            <label for="search"></label>
+            <input type="text" name="search" id="search" placeholder="Search...">
+        </div>
+    </div>
+    <div id="sidebar">
+        <div id="forms">
+            <h2>Add Book</h2>
+            <div class="form-one">
+                <label for="book_name">Book Name:</label>
+                <input type="text" name="book_name" id="book_name">
+            </div>
+            <div class="form-two">
+                <label for="author_name">Author Name:</label>
+                <input type="text" name="author_name" id="author_name">
+            </div>
+            <div class="form-three">
+                <label for="page_num">How many pages?</label>
+                <input type="number" name="page_num" id="page_num"> 
+            </div>
+            <div class="form-four">
+                <label for="read_check">Have you read it?</label>
+                <input type="checkbox" name="read_check" id="read_check"> 
+            </div>
+            <button id="add_book">Add Book</button>
+        </div>
+    </div>
+    <div id="main-container">
+        <div class="card">
+            <div class="name">Book</div>
+            <div class="author">Susie Bookman</div>
+            <div class="pages">234 pages</div>
+            <div class="read">Have Read</div>
+        </div>
+    </div>
+</body>
+</html>
