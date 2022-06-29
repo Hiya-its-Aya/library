@@ -1,4 +1,4 @@
-*{ border: .5px dashed red}
+/* *{ border: .5px dashed red} */
 
 body{
     margin: 0%;
@@ -11,6 +11,7 @@ body{
     grid-template-rows:repeat(8, 1fr) ;
     font-size: 1rem;
 }
+
 body > *{
     padding: 1rem;
 }
@@ -29,7 +30,7 @@ body > *{
     color: white;
 }
 
-#main-container{
+#main_container{
     grid-row: 2/9;
     grid-column: 2/6;
     display: grid;
@@ -46,6 +47,7 @@ body > *{
     background-color:  #f46e50;
     border-radius: 10px;
     color: white;
+    margin: 5%;
 }
 
 
