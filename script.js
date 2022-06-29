@@ -7,6 +7,7 @@ const main_container = document.querySelector("#main_container");
 const remove = document.querySelector(".remove");
 
 
+
 let myLibrary = [];
 const size = 4;
 
@@ -67,20 +68,21 @@ Book.prototype.makeCard = function(){
   remove.setAttribute('class', 'remove');
   remove.textContent = "Remove Book";
   card.appendChild(remove);
-}
 
-function removeBook(){
-  
-}
+  remove.addEventListener('click', () => {
+      remove.parentElement.remove();
+  })
 
+}
 
 add_book.addEventListener('click', () => {
    const book = new Book(addBookToLibrary());
    book.makeCard();
 })
 
+
 remove.addEventListener('click', () => {
-  removeBook();
+    remove.parentElement.remove();
 })
 
 
