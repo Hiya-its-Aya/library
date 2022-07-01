@@ -35,6 +35,7 @@ function Book(myLibrary) {
 
 //make a card and add to page
 Book.prototype.makeCard = function(){
+
   const card = document.createElement('div');
   card.setAttribute('class', "card");
   main_container.appendChild(card);
@@ -57,10 +58,10 @@ Book.prototype.makeCard = function(){
   const read = document.createElement('div');
   read.setAttribute('class', "read");
   if(this.read === true){
-    read.textContent = "Have read";
+    read.textContent = "Have read ";
   }
   else{
-    read.textContent = "Have not read"
+    read.textContent = "Have not read "
   }
   card.appendChild(read);
 
@@ -70,10 +71,41 @@ Book.prototype.makeCard = function(){
   card.appendChild(remove);
 
   remove.addEventListener('click', () => {
-      remove.parentElement.remove();
+    remove.parentElement.remove();
   })
 
+  makeToggle(read);
 }
+
+//male toggle for read/notread
+function makeToggle(read){
+  const toggle = document.createElement('label');
+  toggle.setAttribute('class', "switch");
+  read.appendChild(toggle);
+
+  const input = document.createElement('INPUT');
+  input.setAttribute('type', "checkbox");
+  toggle.appendChild(input);
+
+  if(read.textContent == "Have read "){
+    input.checked = true;
+  }
+  else{
+    input.checked = false;
+  }
+
+  const span = document.createElement('span');
+  span.setAttribute('class', "slider round");
+  toggle.appendChild(span);
+
+  input.addEventListener('change', () => {
+    if(input.checked = true){
+      read.textContent = "Have not read "
+      // card.appendChild(read)
+    }
+  } )
+}
+
 
 add_book.addEventListener('click', () => {
    const book = new Book(addBookToLibrary());
