@@ -5,10 +5,10 @@ const read_check =document.querySelector("#read_check");
 const add_book = document.querySelector("#add_book");
 const main_container = document.querySelector("#main_container");
 const remove = document.querySelector(".remove");
-const name = document.querySelector(".name");
-const author = document.querySelector(".author");
-const read = document.querySelector(".read");
-const input = document.querySelector("input");
+let n = document.querySelector(".name");
+let a  = document.querySelector(".author");
+let r = document.querySelector(".read");
+let inp = document.querySelector("input");
 
 
 
@@ -114,24 +114,10 @@ function makeToggle(read, card){
 }
 
 
-
-
-
 add_book.addEventListener('click', () => {
    const book = new Book(addBookToLibrary());
    book.makeCard();
 })
 
-remove.addEventListener('click', () => {
-    remove.parentElement.remove();
-})
 
-input.addEventListener('change', () => {
-  if(input.checked == true){
-    read.textContent = "Read"
-  }
-  if(input.checked == false){
-    read.textContent = "Not Read  "
-  }
-})
 
