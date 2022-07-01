@@ -65,6 +65,26 @@ Book.prototype.makeCard = function(){
   }
   card.appendChild(read);
 
+  const toggle = document.createElement('label');
+  toggle.setAttribute('class', "switch");
+  card.appendChild(toggle);
+
+  const input = document.createElement('INPUT');
+  input.setAttribute('type', "checkbox");
+  if(read.textContent == "Have read "){
+    input.checked = true;
+  }
+  else{
+    input.checked = false;
+  }
+  toggle.appendChild(input);
+
+  const span = document.createElement('span');
+  span.setAttribute('class', "slider round");
+  toggle.appendChild(span);
+
+  input.addEventListener('change', handleToggle(card, input, read))
+
   const remove = document.createElement('button');
   remove.setAttribute('class', 'remove');
   remove.textContent = "Remove Book";
@@ -74,36 +94,20 @@ Book.prototype.makeCard = function(){
     remove.parentElement.remove();
   })
 
-  makeToggle(read);
+  
+
 }
 
-//male toggle for read/notread
-function makeToggle(read){
-  const toggle = document.createElement('label');
-  toggle.setAttribute('class', "switch");
-  read.appendChild(toggle);
-
-  const input = document.createElement('INPUT');
-  input.setAttribute('type', "checkbox");
-  toggle.appendChild(input);
-
-  if(read.textContent == "Have read "){
-    input.checked = true;
-  }
-  else{
-    input.checked = false;
-  }
-
-  const span = document.createElement('span');
-  span.setAttribute('class', "slider round");
-  toggle.appendChild(span);
-
-  input.addEventListener('change', () => {
+//make toggle for read/notread
+function handleToggle(card, input, read){
     if(input.checked = true){
       read.textContent = "Have not read "
-      // card.appendChild(read)
+      card.appendChild(read)
     }
-  } )
+    else{
+      read.textContent ="Have read "
+      card.appendChild(read)
+    }
 }
 
 
