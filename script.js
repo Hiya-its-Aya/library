@@ -5,6 +5,11 @@ const read_check =document.querySelector("#read_check");
 const add_book = document.querySelector("#add_book");
 const main_container = document.querySelector("#main_container");
 const remove = document.querySelector(".remove");
+const name = document.querySelector(".name");
+const author = document.querySelector(".author");
+const read = document.querySelector(".read");
+const input = document.querySelector("input");
+
 
 
 
@@ -58,20 +63,35 @@ Book.prototype.makeCard = function(){
   const read = document.createElement('div');
   read.setAttribute('class', "read");
   if(this.read === true){
-    read.textContent = "Have read ";
+    read.textContent = "Read ";
   }
   else{
-    read.textContent = "Have not read "
+    read.textContent = "Not read "
   }
   card.appendChild(read);
 
+  makeToggle(read, card);
+
+  const remove = document.createElement('button');
+  remove.setAttribute('class', 'remove');
+  remove.textContent = "Remove Book";
+  card.appendChild(remove);
+
+  remove.addEventListener('click', () => {
+    remove.parentElement.remove();
+  })
+
+}
+
+//make toggle for read/notread
+function makeToggle(read, card){
   const toggle = document.createElement('label');
   toggle.setAttribute('class', "switch");
   card.appendChild(toggle);
 
   const input = document.createElement('INPUT');
   input.setAttribute('type', "checkbox");
-  if(read.textContent == "Have read "){
+  if(read.textContent == "Read "){
     input.checked = true;
   }
   else{
@@ -83,32 +103,18 @@ Book.prototype.makeCard = function(){
   span.setAttribute('class', "slider round");
   toggle.appendChild(span);
 
-  input.addEventListener('change', handleToggle(card, input, read))
-
-  const remove = document.createElement('button');
-  remove.setAttribute('class', 'remove');
-  remove.textContent = "Remove Book";
-  card.appendChild(remove);
-
-  remove.addEventListener('click', () => {
-    remove.parentElement.remove();
-  })
-
-  
-
+  input.addEventListener('change', () => {
+    if(input.checked == true){
+      read.textContent = "Read"
+    }
+    if(input.checked == false){
+      read.textContent = "Not Read  "
+    }
+})
 }
 
-//make toggle for read/notread
-function handleToggle(card, input, read){
-    if(input.checked = true){
-      read.textContent = "Have not read "
-      card.appendChild(read)
-    }
-    else{
-      read.textContent ="Have read "
-      card.appendChild(read)
-    }
-}
+
+
 
 
 add_book.addEventListener('click', () => {
@@ -116,9 +122,16 @@ add_book.addEventListener('click', () => {
    book.makeCard();
 })
 
-
 remove.addEventListener('click', () => {
     remove.parentElement.remove();
 })
 
+input.addEventListener('change', () => {
+  if(input.checked == true){
+    read.textContent = "Read"
+  }
+  if(input.checked == false){
+    read.textContent = "Not Read  "
+  }
+})
 
