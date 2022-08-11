@@ -10,8 +10,7 @@ let n = document.querySelector(".name");
 let a  = document.querySelector(".author");
 let r = document.querySelector(".read");
 let inp = document.querySelector("input");
-
-
+const err = document.querySelector(".error")
 
 
 let myLibrary = [];
@@ -114,13 +113,21 @@ function makeToggle(read, card){
 })
 }
 
+function validate(){
+  pages_num.addEventListener("input", (event) => {
+  if(!pages_num.validity.valid){
+    err.textContent= "please put value above 1"
+  }
+  })
+}
 
 form.addEventListener('submit', (event) => {
-   event.preventDefault();
-   const book = new Book(addBookToLibrary());
-   book.makeCard();
-   console.log(book)
+  event.preventDefault();
+  const book = new Book(addBookToLibrary());
+  book.makeCard();
+  console.log(book)
+  form.reset();
 })
 
-
+validate();
 

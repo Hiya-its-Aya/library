@@ -29,7 +29,7 @@
             </div>
             <div class="form-three">
                 <label for="page_num">How many pages?</label>
-                <input type="number" name="page_num" id="page_num" placeholder="240..." required> 
+                <input type="number" name="page_num" id="page_num" placeholder="240..." min = "1" required> 
             </div>
             <div class="form-four">
                 <label for="read_check">Have you read it?</label>
@@ -37,6 +37,7 @@
             </div>
             <button type="submit" id="add_book">Add Book</button>
         </form>
+        <div class="error"></div>
     </div>
     <div id="main_container">
     </div>
