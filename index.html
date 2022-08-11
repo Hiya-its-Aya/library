@@ -17,26 +17,26 @@
         </div>
     </div>
     <div id="sidebar">
-        <div id="forms">
-            <h2>Add Book</h2>
+        <h2>Add Book</h2>
+        <form id="forms">
             <div class="form-one">
                 <label for="book_name">Book Name:</label>
-                <input type="text" name="book_name" id="book_name" placeholder="Great Expectations...">
+                <input type="text" name="book_name" id="book_name" placeholder="Great Expectations..." required >
             </div>
             <div class="form-two">
                 <label for="author_name">Author Name:</label>
-                <input type="text" name="author_name" id="author_name" placeholder="Charles Dickens...">
+                <input type="text" name="author_name" id="author_name" placeholder="Charles Dickens..." required >
             </div>
             <div class="form-three">
                 <label for="page_num">How many pages?</label>
-                <input type="number" name="page_num" id="page_num" placeholder="240..."> 
+                <input type="number" name="page_num" id="page_num" placeholder="240..." required> 
             </div>
             <div class="form-four">
                 <label for="read_check">Have you read it?</label>
                 <input type="checkbox" name="read_check" id="read_check" > 
             </div>
-            <button id="add_book">Add Book</button>
-        </div>
+            <button type="submit" id="add_book">Add Book</button>
+        </form>
     </div>
     <div id="main_container">
     </div>

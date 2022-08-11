@@ -5,6 +5,7 @@ const read_check =document.querySelector("#read_check");
 const add_book = document.querySelector("#add_book");
 const main_container = document.querySelector("#main_container");
 const remove = document.querySelector(".remove");
+const form = document.querySelector("#forms")
 let n = document.querySelector(".name");
 let a  = document.querySelector(".author");
 let r = document.querySelector(".read");
@@ -114,9 +115,11 @@ function makeToggle(read, card){
 }
 
 
-add_book.addEventListener('click', () => {
+form.addEventListener('submit', (event) => {
+   event.preventDefault();
    const book = new Book(addBookToLibrary());
    book.makeCard();
+   console.log(book)
 })
 
 
